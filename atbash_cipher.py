@@ -8,7 +8,7 @@ The same algorithm is used for both encryption and decryption.
 alphabet="abcdefghijklmnopqrstuvwxyz "
 cipher_alphabet="ZYXWVUTSRQPONMLKJIHGFEDCBA "
 
-message=input("Typer the text to crypt/decrypt")
+message=input("Typer the text to crypt/decrypt: ")
 output=""
 
 # Iterate over each character in the message and substitute it
