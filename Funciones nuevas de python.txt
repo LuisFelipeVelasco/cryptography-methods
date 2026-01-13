@@ -1,0 +1,71 @@
+OBTENER EL COCIENTE ENTERO DE DOS NUMEROS : a//b 
+REPETIR CADENAS : cadena * 2 --> cadenacadena
+
+CARACTERES DE ESCAPE: 
+\ \ Ejemplo 
+print ("Me dijo: \"Hola\"") --> Hola
+
+r Ejemplo:
+print (´C:\Documentos\numancia.txt´) ---> 
+C:\Documentos 
+umancia.txt
+
+print(r´C:\Documentos\numancia.txt´) --> C:\Documentos\numancia.txt
+
+ACCEDER A CARACTERES DE UNA PALABRA DESDE ULTIMA POSICION HACIA ATRAS
+
+Indexacion:
+
+Cadena="Hola"
+print(Cadena[-1])-->a
+print(Cadena[-4])-->H
+
+FRACCIONAMIENTO
+Cadena="Criptografia"
+print(Cadena[0:6])--> Cripto
+Print(Cadena[6:12])--> grafia
+Print(Cadena[0:6][3])--> p
+
+LISTAS
+Claves=["GDOP", "AROV","GWCI","FYHL"]
+Claves.insert(1,"HEQP")
+Print(Claves)--> ["GDOP","HEQP","AROV","GWCI","FYHL"]
+
+RANGE():
+
+🔹 1 parámetro → range(stop)
+
+Solo dices hasta dónde contar (excluyendo el número final).
+
+El inicio por defecto es 0, el paso por defecto es 1.
+
+range(5)  # 0,1,2,3,4
+
+🔹 2 parámetros → range(start, stop)
+
+Empieza en start y termina en stop - 1.
+
+range(2, 6)  # 2,3,4,5
+
+🔹 3 parámetros → range(start, stop, step)
+
+step indica cuánto aumentamos cada vez.
+
+Puede ser negativo para contar hacia atrás.
+
+range(1, 10, 2)  # 1,3,5,7,9
+range(10, 0, -2) # 10,8,6,4,2
+
+
+Math.Ceil()--> Aproximate the decimal n to the smaller integer greater to n 
+string.split()----> Become a string into a list , each substring is an element of the list
+"".join(list) ----> Join all the elements of the list in a string
+
+function to save the txt´s content:
+
+with open(file_path, "r", encoding="utf-8") as f:
+    text = f.read()
+
+"r"--read mode
+file_path--> variable that save the direcction of the txt 
+f--->the object that read the file
