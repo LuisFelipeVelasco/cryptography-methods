@@ -1,7 +1,7 @@
 """
 Cesar Cipher
 
-The Ceesar cipher is one of the oldest known encryption techniques.
+The Cesar cipher is one of the oldest known encryption techniques.
 It is named after Julius Cesar, who reportedly used this method
 to protect military messages in ancient Rome.
 
