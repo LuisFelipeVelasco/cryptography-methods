@@ -1,4 +1,4 @@
-import pyperclip ,math,Spanish_Detector as Sp
+import pyperclip ,math,spanish_detector as Sp
 
 def main():
     User_Action=input("Do you want Decrypte (D) or Encrypte (C)? or Break(B) ")

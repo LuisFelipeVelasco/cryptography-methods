@@ -1,6 +1,6 @@
 
 def Detect_Number_Of_Words_In_Spanish(user_text):
-    file_path = "L:\Proyectos Ing.Sistemas\Proyectos programacion pyton\Ejercicios Libro Criptografia Sin Secretos Con Python\Spanish_Dictionary.txt"
+    file_path = "Spanish_Dictionary.txt"
     with open(file_path, "r", encoding="utf-8") as f:
         text = f.read()
     words = text.split()
