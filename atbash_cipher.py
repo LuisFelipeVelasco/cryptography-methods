@@ -1,12 +1,22 @@
-Alfabeto_Latino="abcdefghijklmnopqrstuvwxyz "
-Alfabeto_Cifrado="ZYXWVUTSRQPONMLKJIHGFEDCBA "
+"""
+Atbash Cipher
+A classical substitution cipher that replaces each letter with its
+corresponding letter from the reversed alphabet.
+The same algorithm is used for both encryption and decryption.
 
-Mensaje=input("Digite su mensaje a cifrar/descifrar ")
-NuevoMensaje=""
+"""
+alphabet="abcdefghijklmnopqrstuvwxyz "
+cipher_alphabet="ZYXWVUTSRQPONMLKJIHGFEDCBA "
 
-for Caracter in Mensaje.lower():
-    if Caracter in Alfabeto_Latino:
-        Cifra=Alfabeto_Cifrado[Alfabeto_Latino.index(Caracter)]
-        NuevoMensaje+=Cifra
+message=input("Typer the text to crypt/decrypt")
+output=""
 
-print(NuevoMensaje)
+# Iterate over each character in the message and substitute it
+# with the character at the same index in the cipher alphabet
+
+for character in message.lower():
+    if character in alphabet:
+        cipher=cipher_alphabet[alphabet.index(character)]
+        output+=cipher
+
+print(output)
