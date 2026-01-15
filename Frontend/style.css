@@ -1,0 +1,117 @@
+body {
+    background-color: #1a1a1a;
+    font-family: "Courier New", monospace;
+    color: #e8e3d3;
+    margin: 0;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    border-bottom: 2px solid #9c8b6a;
+    padding-bottom: 10px;
+}
+
+.box {
+    border: 2px solid #9c8b6a;
+    background: #262626;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.actions button {
+    flex: 1;
+    background: #333;
+    color: #e8e3d3;
+    border: 2px solid #9c8b6a;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.actions button.active {
+    background: #9c8b6a;
+    color: #1a1a1a;
+}
+
+textarea {
+    width: 97%;
+    height: 120px;
+    background: #1a1a1a;
+    color: #e8e3d3;
+    border: 2px solid #9c8b6a;
+    padding: 10px;
+    resize: vertical;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    background: #1a1a1a;
+    color: #e8e3d3;
+    border: 2px solid #9c8b6a;
+}
+
+.key-box {
+    display: none;
+}
+
+.submit-btn {
+    margin-top: 20px;
+    width: 100%;
+    padding: 14px;
+    font-size: 18px;
+    background: #9c8b6a;
+    color: #1a1a1a;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* CLASSIC BUTTON ANIMATION */
+.submit-btn:active {
+    transform: translateY(2px);
+    box-shadow: inset 0 0 10px #000;
+}
+
+.submit-btn:hover {
+    box-shadow: 0 0 10px #9c8b6a;
+}
+
+.loading {
+    margin-top: 15px;
+    display: none;
+    font-size: 18px;
+}
+
+.output {
+    height: 150px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .actions {
+        flex-direction: column;
+    }
+
+    textarea {
+        width: 93%;
+    }
+}

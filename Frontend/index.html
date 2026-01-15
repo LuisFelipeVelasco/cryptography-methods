@@ -4,11 +4,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cryptography-Methods</title>
+    <title>Classic Cryptography</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
+    <div class="container">
+        <h1>Classic Cryptography Methods</h1>
+
+        <!-- METHODS -->
+        <div class="box">
+            <label><input type="radio" name="method" value="caesar"> Cesar Cipher</label>
+            <label><input type="radio" name="method" value="atbash"> Atbash Cipher</label>
+            <label><input type="radio" name="method" value="transposition"> Columnar Transposition</label>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="actions">
+            <button data-action="encrypt">Encrypt</button>
+            <button data-action="decrypt">Decrypt</button>
+            <button data-action="break">Break</button>
+        </div>
+
+        <!-- KEY -->
+        <div class="box key-box" id="keyBox">
+            <label for="keySelect">Key:</label>
+            <select id="keySelect">
+                <option value="">Select key</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        </div>
+
+        <!-- INPUT -->
+        <div class="box">
+            <textarea id="inputText" placeholder="Enter your message..."></textarea>
+        </div>
+
+        <!-- SUBMIT -->
+        <button id="submitBtn" class="submit-btn">Submit</button>
+
+        <!-- LOADING -->
+        <div id="loading" class="loading">loading</div>
+
+        <!-- OUTPUT -->
+        <div class="box output" id="outputBox"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
