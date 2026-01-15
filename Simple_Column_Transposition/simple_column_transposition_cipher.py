@@ -14,22 +14,7 @@ How it works (simple explanation):
 column by column from top to bottom.
 
 """
-
-
 import math,english_detector as en
-
-def main():
-    User_Action=input("Do you want Decrypt (D) or Encrypt (C)? or Break(B)?: ")
-    Message=input("Type your message to Encrypt/Decrypt/Break ")
-    Message=Reset_Message(Message)
-    Output=""
-    if (User_Action!="B"): key=int(input("Type the key: "))
-    if (User_Action=="C"): Output= splitWordIntoParts(Encrypt(Message,key,Output))
-    if (User_Action=="D"): Output= DesEncrypt(Message,key,Output)
-    if (User_Action=="B"): Output=Break(Message,Output)
-    else : print("Type a correct value ")
-    print("") 
-    print(Output)
 
 #Verify if the each character of the message is in the alphabet
 #If one character is not in the alphabet , is ommited 
@@ -37,9 +22,9 @@ def main():
 def Reset_Message(Message):
     Alphabet="abcdefghijklmnopqrstuvwxyz"
     Final_Message=""
-    for caracter in Message.lower():
-        if caracter in Alphabet:
-            Final_Message+=caracter
+    for character in Message.lower():
+        if character in Alphabet:
+            Final_Message+=character
     return Final_Message
 
 # Key = Number_Of_Columns
@@ -49,7 +34,11 @@ def Reset_Message(Message):
 # Once a column is completed, move to the next column and repeat
 # until all columns are processed.
 
-def Encrypt(Message,key,Output):
+def Encrypt(key,Message,Number_Of_Characteres_Joined):
+    Output=""
+    key=int(key)
+    Number_Of_Characteres_Joined=int(Number_Of_Characteres_Joined)
+    Message=Reset_Message(Message)
     Number_of_Rows=math.ceil(len(Message)/key)
     Row=0
     Column=1
@@ -58,16 +47,15 @@ def Encrypt(Message,key,Output):
             if i<len(Message):Output+=Message[i]
         Row+=1
         Column+=1
-    return Output
+    return splitWordIntoParts(Output,Number_Of_Characteres_Joined)
 
 # Divide the text into parts of the same lenght (Defined by the user) that are separated by spaces 
 
-def splitWordIntoParts(Output):
-    Number_Of_Caracteres_Joined=int(input("How many words do you want to join together in the message?: "))  
+def splitWordIntoParts(Output,Number_Of_Characteres_Joined):
     Number_Of_Spaces=1
     List_Of_Output=list(Output)
-    while(Number_Of_Spaces<=int(len(Output)/Number_Of_Caracteres_Joined)):
-        Position_Of_Space=((Number_Of_Caracteres_Joined+1)*Number_Of_Spaces)-1
+    while(Number_Of_Spaces<=int(len(Output)/Number_Of_Characteres_Joined)):
+        Position_Of_Space=((Number_Of_Characteres_Joined+1)*Number_Of_Spaces)-1
         List_Of_Output.insert(Position_Of_Space," ")
         Number_Of_Spaces+=1
     Output="".join(List_Of_Output)
@@ -82,7 +70,9 @@ def splitWordIntoParts(Output):
 # Once a column is completed, move to the next column and repeat
 # until all columns are processed. 
 
-def DesEncrypt(Message,key,Output):
+def DesEncrypt(key,Message):
+    key=int(key)
+    Output=""
     Number_of_Columns=math.ceil(len(Message)/key)   
     Message=ResetMessageToDesencrypt(Message,Number_of_Columns,key)      
     Row=0
@@ -100,6 +90,7 @@ def DesEncrypt(Message,key,Output):
 #Simulating that the text is being writing in a matrix
 
 def ResetMessageToDesencrypt(Message,Number_of_Columns,key):
+    key=int(key)
     Number_of_Empty_Cells=(Number_of_Columns*key) - len(Message)
     Number_of_Cells_Between_Spaces=Number_of_Columns-1
     List_Of_Message=list(Message)
@@ -117,7 +108,8 @@ def ResetMessageToDesencrypt(Message,Number_of_Columns,key):
 #
 # The best candidate is returned as the most probable plaintext.
 
-def Break(Message,Output):
+def Break(Message):
+    Output=""
     lexic_value=0
     current_lexic_value=0
     is_Greater_Then_The_Current_Lexic_Value=True
@@ -135,4 +127,4 @@ def Break(Message,Output):
     return Posible_Output
 
 
-main()
+
