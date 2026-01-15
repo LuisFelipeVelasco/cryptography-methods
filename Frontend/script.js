@@ -25,9 +25,8 @@ document.querySelectorAll(".actions button").forEach(btn => {
 // KEY VISIBILITY LOGIC
 function updateKeyVisibility() {
     const keyBox = document.getElementById("keyBox");
-
     if (
-        (selectedMethod === "caesar" || selectedMethod === "transposition") &&
+        (selectedMethod === "cesar" || selectedMethod === "transposition") &&
         selectedAction !== "break"
     ) {
         keyBox.style.display = "block";
@@ -54,17 +53,35 @@ function stopLoading() {
 }
 
 // SUBMIT
-document.getElementById("submitBtn").addEventListener("click", () => {
-    const output = document.getElementById("outputBox");
-    output.textContent = "";
-
-    startLoading();
-
-    setTimeout(() => {
-        stopLoading();
-        output.textContent =
-            "Result appears here.\n\n" +
-            "Method: " + selectedMethod + "\n" +
-            "Action: " + selectedAction;
-    }, 2500);
+document.getElementById("submitBtn").addEventListener("click", async () => {
+    const result = await callApis();
+    updateOutputText(result);
 });
+
+// Call THEENCRYPTION METHOD
+
+async function callApis() {
+    key = parseInt(document.getElementById("keySelect").value, 10);
+    message = document.getElementById("inputText").value;
+    Url = `http://127.0.0.1:5000/${selectedMethod}/${selectedAction}`;
+    Output = await fetch(Url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            key: key,
+            message: message
+        })
+    });
+    finalOutput = await Output.json();
+    return finalOutput.result;
+}
+
+//UPDATE THE BOX WHERE THE ANSWER IS SHOWED
+
+function updateOutputText(message) {
+    text = document.getElementById("outputBox");
+    text.textContent = message;
+
+}

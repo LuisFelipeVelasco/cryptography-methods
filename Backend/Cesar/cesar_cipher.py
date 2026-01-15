@@ -23,7 +23,7 @@ def encrypt(key,message):
       for character in message.lower():
             if character in alphabet:
                   character_position=alphabet.find(character)
-                  character_position= (character_position + int(key) % len(alphabet))
+                  character_position= ((character_position + int(key)) % len(alphabet))
                   output+=alphabet[character_position]
             else :
                   output+=character
@@ -34,7 +34,7 @@ def decrypt(key,message):
       for character in message.lower():
             if character in alphabet:
                   character_position=alphabet.find(character)
-                  character_position= (character_position - int(key) % len(alphabet))
+                  character_position= ((character_position - int(key)) % len(alphabet))
                   output+=alphabet[character_position]
             else :
                   output+=character
