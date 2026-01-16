@@ -54,8 +54,11 @@ function stopLoading() {
 
 // SUBMIT
 document.getElementById("submitBtn").addEventListener("click", async () => {
+    startLoading()
+    updateOutputText(" ")
     const result = await callApis();
     updateOutputText(result);
+    stopLoading()
 });
 
 // CAll THE ENCRYPTION METHOD

@@ -4,6 +4,7 @@ import Cesar.cesar_cipher as Cesar
 import Cesar.cesar_hack as CesarH
 import Simple_Column_Transposition.simple_column_transposition_cipher as ScTransposition
 from flask_cors import CORS
+import os
 
 app= Flask(__name__)
 CORS(app)
@@ -42,20 +43,30 @@ def cesar_break():
     message_breaked=CesarH.cesar_break(user_message)
     return jsonify({"result":message_breaked})
 
-@app.route("/transposition/encrypt/<key>/<user_message>/<Number_Of_Characteres_Joined>")
-def simple_column_transposition_encrypt(key,user_message,Number_Of_Characteres_Joined):
-    message_encrypted=ScTransposition.Encrypt(key,user_message,Number_Of_Characteres_Joined)
+@app.route("/transposition/encrypt" , methods=["POST"])
+def simple_column_transposition_encrypt():
+    data=request.get_json()
+    key=data["key"]
+    user_message=data["message"]
+    message_encrypted=ScTransposition.Encrypt(key,user_message)
     return jsonify({"result":message_encrypted})
 
-@app.route("/transposition/decrypt/<key>/<user_message>")
-def simple_column_transposition_decrypt(key,user_message):
-    message_desencrypted=ScTransposition.Encrypt(key,user_message)
+@app.route("/transposition/decrypt", methods=["POST"])
+def simple_column_transposition_decrypt():
+    data=request.get_json()
+    key=data["key"]
+    user_message=data["message"]
+    message_desencrypted=ScTransposition.Decrypt(key,user_message)
     return jsonify({"result":message_desencrypted})
 
-@app.route("/transposition/break/<user_message>")
-def simple_column_transposition_break(user_message):
-    message_breaked=ScTransposition.Encrypt(user_message)
+@app.route("/transposition/break" , methods=["POST"])
+def simple_column_transposition_break():
+    data=request.get_json()
+    user_message=data["message"]
+    message_breaked=ScTransposition.Break(user_message)
     return jsonify({"result":message_breaked})
 
 if __name__=="__main__":
     app.run(debug=True)
+    import os
+    print(os.getcwd())

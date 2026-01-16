@@ -34,10 +34,10 @@ def Reset_Message(Message):
 # Once a column is completed, move to the next column and repeat
 # until all columns are processed.
 
-def Encrypt(key,Message,Number_Of_Characteres_Joined):
+def Encrypt(key,Message):
     Output=""
     key=int(key)
-    Number_Of_Characteres_Joined=int(Number_Of_Characteres_Joined)
+    Number_Of_Characteres_Joined=5
     Message=Reset_Message(Message)
     Number_of_Rows=math.ceil(len(Message)/key)
     Row=0
@@ -70,11 +70,12 @@ def splitWordIntoParts(Output,Number_Of_Characteres_Joined):
 # Once a column is completed, move to the next column and repeat
 # until all columns are processed. 
 
-def DesEncrypt(key,Message):
+def Decrypt(key,Message):
     key=int(key)
     Output=""
+    Message=Reset_Message(Message)
     Number_of_Columns=math.ceil(len(Message)/key)   
-    Message=ResetMessageToDesencrypt(Message,Number_of_Columns,key)      
+    Message=ResetMessageToDecrypt(Message,Number_of_Columns,key)      
     Row=0
     Column=1    
     while(Column<=Number_of_Columns):
@@ -89,8 +90,7 @@ def DesEncrypt(key,Message):
 #spaces in positions corresponding to empty cells
 #Simulating that the text is being writing in a matrix
 
-def ResetMessageToDesencrypt(Message,Number_of_Columns,key):
-    key=int(key)
+def ResetMessageToDecrypt(Message,Number_of_Columns,key):
     Number_of_Empty_Cells=(Number_of_Columns*key) - len(Message)
     Number_of_Cells_Between_Spaces=Number_of_Columns-1
     List_Of_Message=list(Message)
@@ -109,6 +109,7 @@ def ResetMessageToDesencrypt(Message,Number_of_Columns,key):
 # The best candidate is returned as the most probable plaintext.
 
 def Break(Message):
+    Message=Reset_Message(Message)
     Output=""
     lexic_value=0
     current_lexic_value=0
@@ -116,7 +117,7 @@ def Break(Message):
     key=2
     while (current_lexic_value<=0.5 or  is_Greater_Then_The_Current_Lexic_Value==True):
         Output=" "
-        Output=DesEncrypt(Message,key,Output)
+        Output=Decrypt(key,Message)
         lexic_value=len(en.Detect_Number_Of_Words_In_English(Output))/len(Output)
         if lexic_value<current_lexic_value: 
             is_Greater_Then_The_Current_Lexic_Value=False
