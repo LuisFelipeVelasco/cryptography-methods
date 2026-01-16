@@ -67,6 +67,6 @@ def simple_column_transposition_break():
     return jsonify({"result":message_breaked})
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0" , port=5000,debug=True)
     import os
     print(os.getcwd())

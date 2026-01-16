@@ -93,10 +93,10 @@ function updateOutputText(message) {
 
 function getUrl() {
     if (selectedMethod == "atbash") {
-        Url = `https://cryptography-methods-production.up.railway.app//atbash`
+        Url = `https://cryptography-methods.up.railway.app/atbash`
     }
     else {
-        Url = `https://cryptography-methods-production.up.railway.app/${selectedMethod}/${selectedAction}`;
+        Url = `https://cryptography-methods.up.railway.app/${selectedMethod}/${selectedAction}`;
     }
     return Url
 }
