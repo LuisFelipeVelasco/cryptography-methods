@@ -58,12 +58,12 @@ document.getElementById("submitBtn").addEventListener("click", async () => {
     updateOutputText(result);
 });
 
-// Call THEENCRYPTION METHOD
+// CAll THE ENCRYPTION METHOD
 
 async function callApis() {
     key = parseInt(document.getElementById("keySelect").value, 10);
     message = document.getElementById("inputText").value;
-    Url = `http://127.0.0.1:5000/${selectedMethod}/${selectedAction}`;
+    Url = getUrl();
     Output = await fetch(Url, {
         method: "POST",
         headers: {
@@ -84,4 +84,16 @@ function updateOutputText(message) {
     text = document.getElementById("outputBox");
     text.textContent = message;
 
+}
+
+//CREATE A URL DEPENDING OF THE CRIPTOGRAPHY METHOD
+
+function getUrl() {
+    if (selectedMethod == "atbash") {
+        Url = `http://127.0.0.1:5000/atbash`
+    }
+    else {
+        Url = `http://127.0.0.1:5000/${selectedMethod}/${selectedAction}`;
+    }
+    return Url
 }

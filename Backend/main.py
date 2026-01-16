@@ -12,8 +12,10 @@ CORS(app)
 def home():
     return "Hola"
 
-@app.route("/atbash/<user_message>")
-def atbash_cipher(user_message):
+@app.route("/atbash",methods=["POST"])
+def atbash_cipher():
+    data=request.get_json()
+    user_message=data["message"]
     message=atbash.codify(user_message)
     return jsonify({"result":message}),200
 
