@@ -3,7 +3,7 @@
 A clean and educational Python cryptography project that implements classical encryption and decryption techniques.
 The project is designed to clearly separate backend cryptographic logic from a simple frontend interface, making it ideal for learning how ciphers work and how backend–frontend communication is structured.
 
-PRESS THE GIF TO SEE THE PROJECT  ⬇️
+**PRESS THE GIF TO SEE THE PROJECT**  ⬇️
 
 [![My Website](https://github.com/user-attachments/assets/e7e0d6be-bcbf-4968-be98-ac32af4a2dac)](https://cryptography-methods.netlify.app/)
 
