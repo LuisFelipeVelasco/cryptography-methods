@@ -119,7 +119,8 @@ def Break(Message):
     current_lexic_value=0
     is_Greater_Then_The_Current_Lexic_Value=True
     key=2
-    while (current_lexic_value<=0.5 or  is_Greater_Then_The_Current_Lexic_Value==True): #here
+    least_lexic_value_in_english=0.5
+    while (current_lexic_value<=least_lexic_value_in_english or  is_Greater_Then_The_Current_Lexic_Value==True):
         Output=" "
         Output=Decrypt(key,Message)
         lexic_value=len(en.Detect_Number_Of_Words_In_English(Output))/len(Output)
