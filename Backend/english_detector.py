@@ -10,19 +10,21 @@ def Detect_Number_Of_Words_In_English(user_text):
     words = text.split()
     lenght_of_user_text=len(user_text)
     list_of_user_words_in_English=[]
-    i = 0
-    while i <= lenght_of_user_text - 4: 
-        final_character = 4
-        while final_character <= 20 and (final_character + i) <= lenght_of_user_text:
-            word = user_text[i:i + final_character]
+    starting_position_of_word_to_check = 0
+    starting_position_of_last_word_to_check=lenght_of_user_text-4
+    maximum_number_of_characters_in_a_word=20
+    while starting_position_of_word_to_check <= starting_position_of_last_word_to_check: 
+        quantity_of_characters_of_word_to_check = 4
+        while quantity_of_characters_of_word_to_check <= maximum_number_of_characters_in_a_word and (quantity_of_characters_of_word_to_check + starting_position_of_word_to_check) <= lenght_of_user_text:
+            word = user_text[starting_position_of_word_to_check:starting_position_of_word_to_check + quantity_of_characters_of_word_to_check]
 
             if word in words:
                 list_of_user_words_in_English.append(word)
-                i += final_character   
+                starting_position_of_word_to_check += quantity_of_characters_of_word_to_check
                 break
 
-            final_character += 1
+            quantity_of_characters_of_word_to_check += 1
         else:
-            i += 1     
+            starting_position_of_word_to_check += 1     
     return "".join(list_of_user_words_in_English)
 
