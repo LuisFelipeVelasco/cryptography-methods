@@ -55,7 +55,7 @@ def splitWordIntoParts(Output,Number_Of_Characteres_Joined):
     Number_Of_Spaces=1
     List_Of_Output=list(Output)
     while(Number_Of_Spaces<=int(len(Output)/Number_Of_Characteres_Joined)):
-        Position_Of_Space=((Number_Of_Characteres_Joined+1)*Number_Of_Spaces)-1
+        Position_Of_Space=((Number_Of_Characteres_Joined+1)*Number_Of_Spaces)-1 
         List_Of_Output.insert(Position_Of_Space," ")
         Number_Of_Spaces+=1
     Output="".join(List_Of_Output)
@@ -79,7 +79,7 @@ def Decrypt(key,Message):
     Row=0
     Column=1    
     while(Column<=Number_of_Columns):
-        for i in range(Row,Number_of_Columns*key,Number_of_Columns):
+        for i in range(Row,Number_of_Columns*key,Number_of_Columns): 
             if i<len(Message):Output+=Message[i]
         Row+=1
         Column+=1
@@ -94,8 +94,12 @@ def ResetMessageToDecrypt(Message,Number_of_Columns,key):
     Number_of_Empty_Cells=(Number_of_Columns*key) - len(Message)
     Number_of_Cells_Between_Spaces=Number_of_Columns-1
     List_Of_Message=list(Message)
-    for i in range(len(Message), (len(Message)-1)-((Number_of_Empty_Cells-1)*Number_of_Cells_Between_Spaces), -Number_of_Cells_Between_Spaces):
-        List_Of_Message.insert(i," ")    
+    Number_of_Empty_Cells_Without_Last_One=Number_of_Empty_Cells-1
+    Number_Of_Characteres_In_Array=len(Message)-1
+    Space=" "
+    Number_Of_Characteres_In_Array_Before_The_Space=(Number_Of_Characteres_In_Array)-((Number_of_Empty_Cells_Without_Last_One)*Number_of_Cells_Between_Spaces)
+    for i in range(len(Message), Number_Of_Characteres_In_Array_Before_The_Space, -Number_of_Cells_Between_Spaces):
+        List_Of_Message.insert(i,Space)    
     Message="".join(List_Of_Message)
     return Message  
 
@@ -115,7 +119,7 @@ def Break(Message):
     current_lexic_value=0
     is_Greater_Then_The_Current_Lexic_Value=True
     key=2
-    while (current_lexic_value<=0.5 or  is_Greater_Then_The_Current_Lexic_Value==True):
+    while (current_lexic_value<=0.5 or  is_Greater_Then_The_Current_Lexic_Value==True): #here
         Output=" "
         Output=Decrypt(key,Message)
         lexic_value=len(en.Detect_Number_Of_Words_In_English(Output))/len(Output)

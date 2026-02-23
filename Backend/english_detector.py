@@ -11,7 +11,7 @@ def Detect_Number_Of_Words_In_English(user_text):
     lenght_of_user_text=len(user_text)
     list_of_user_words_in_English=[]
     i = 0
-    while i <= lenght_of_user_text - 4:
+    while i <= lenght_of_user_text - 4: 
         final_character = 4
         while final_character <= 20 and (final_character + i) <= lenght_of_user_text:
             word = user_text[i:i + final_character]
